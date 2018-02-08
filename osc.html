@@ -8,7 +8,7 @@
 	
 </head>
 
-<body onkeypress="keyboard(event)">
+<body onkeypress="keyboard(event)" onload="makeMono()">
 	<button name="key" id="btnC">C</button>
 	<button name="key" id="btnD">D</button>
 	<button name="key" id="btnE">E</button>
@@ -17,7 +17,12 @@
 	<button name="key" id="btnA">A</button>
 	<button name="key" id="btnB">B</button>
 	<button name="key" id="btnC8va">C</button>
-	
+	<select id="synthChoice" onchange="switchSynth()">
+		<option value="sDefault">Default</option>
+		<option value="synthA">Synth A</option>
+		<option value="synthB">Synth B</option>
+	</select>
+	<button name="poly" id="poly" onclick="makePoly()">Poly</button>
 	<!-- script must be at bottom? after all HTML loads -->
 	<script src="osc.js" type="text/javascript"></script>
 	<script src="tone/build/Tone.js" type="text/javascript"></script>
