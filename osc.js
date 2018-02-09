@@ -1,9 +1,42 @@
 var keys = document.getElementsByTagName("button");
 var synth;
 var synthDefault;
+var synthDefaultPoly;
 var synthA;
 var synthB;
 
+synthDefault = new Tone.Synth().toMaster();
+
+synthDefaultPoly = new Tone.PolySynth().toMaster();
+
+synthA = new Tone.Synth({
+	oscillator : {
+	type : 'fmsquare',
+	modulationType : 'sawtooth',
+	modulationIndex : 3,
+	harmonicity: 3.4
+  },
+  envelope : {
+	attack : 0.001,
+	decay : 0.1,
+	sustain: 0.1,
+	release: 0.1
+  }
+}).toMaster()
+
+synthB = new Tone.Synth({
+	oscillator : {
+	type : 'triangle8'
+  },
+  envelope : {
+	attack : 2,
+	decay : 1,
+	sustain: 0.4,
+	release: 4
+  }
+}).toMaster()
+
+synth = synthDefault;
 
 // Choose synth 
 function switchSynth() {
@@ -11,6 +44,9 @@ function switchSynth() {
 
 	if (choice.value == "sDefault"){
 		synth = synthDefault;
+	}
+	if (choice.value == "sDefaultPoly"){
+		synth = synthDefaultPoly;
 	}
 	if (choice.value == "synthA") {
 		synth = synthA;
@@ -22,35 +58,7 @@ function switchSynth() {
 
 // synth must be instantiated in a function?
 function makeMono(){
-	synthDefault = new Tone.Synth().toMaster();
-	synth = synthDefault;
 	
-	synthA = new Tone.Synth({
-		oscillator : {
-		type : 'fmsquare',
-		modulationType : 'sawtooth',
-		modulationIndex : 3,
-		harmonicity: 3.4
-	  },
-	  envelope : {
-		attack : 0.001,
-		decay : 0.1,
-		sustain: 0.1,
-		release: 0.1
-	  }
-	}).toMaster()
-
-	synthB = new Tone.Synth({
-		oscillator : {
-		type : 'triangle8'
-	  },
-	  envelope : {
-		attack : 2,
-		decay : 1,
-		sustain: 0.4,
-		release: 4
-	  }
-	}).toMaster()
 }
 
 function makePoly(){
@@ -59,84 +67,38 @@ function makePoly(){
 	
 	document.getElementById("synthChoice").value = "sDefault";
 	//Custom sounds do Poly differently?
-/* 	synthA = new Tone.PolySynth({
-		oscillator : {
-		type : 'fmsquare',
-		modulationType : 'sawtooth',
-		modulationIndex : 3,
-		harmonicity: 3.4
-	  },
-	  envelope : {
-		attack : 0.001,
-		decay : 0.1,
-		sustain: 0.1,
-		release: 0.1
-	  }
-	}).toMaster()
 
-	synthB = new Tone.PolySynth({
-		oscillator : {
-		type : 'triangle8'
-	  },
-	  envelope : {
-		attack : 2,
-		decay : 1,
-		sustain: 0.4,
-		release: 4
-	  }
-	}).toMaster() */
 }
 
 // Play Tones
-function playC() {
-	synth.triggerAttackRelease('C5', '2n');
-}
-function playD() {
-	synth.triggerAttackRelease('D5', '2n');
-}
-function playE() {
-	synth.triggerAttackRelease('E5', '2n');
-}
-function playF() {
-	synth.triggerAttackRelease('F5', '2n');
-}
-function playG() {
-	synth.triggerAttackRelease('G5', '2n');
-}
-function playA() {
-	synth.triggerAttackRelease('A5', '2n');
-}
-function playB() {
-	synth.triggerAttackRelease('B5', '2n');
-}
-function playC8va() {
-	synth.triggerAttackRelease('C6', '2n');
+function playNote(note){
+	synth.triggerAttackRelease(note, '2n');
 }
 
 // Buttons
 keys[0].addEventListener('click', function() {
-	playC();
+	playNote('C5');
 });
 keys[1].addEventListener('click', function() {
-	playD();
+	playNote('D5');
 });
 keys[2].addEventListener('click', function() {
-	playE();
+	playNote('E5');
 });
 keys[3].addEventListener('click', function() {
-	playF();
+	playNote('F5');
 });
 keys[4].addEventListener('click', function() {
-	playG();
+	playNote('G5');
 });
 keys[5].addEventListener('click', function() {
-	playA();
+	playNote('A5');
 });
 keys[6].addEventListener('click', function() {
-	playB();
+	playNote('B5');
 });
 keys[7].addEventListener('click', function() {
-	playC8va();
+	playNote('C6');
 });
 
 //Keystrokes
@@ -144,34 +106,36 @@ function keyboard(event) {
 	var x = event.keyCode;
 	// Q
 	if (x == 113) {
-		playC();
+		playNote('C5');
 	}
 	// W
 	if (x == 119) {
-		playD();
+		playNote('D5');
 	}
 	// E
 	if (x == 101) {
-		playE();
+		playNote('E5');
 	}
 	// R
 	if (x == 114) {
-		playF();
+		playNote('F5');
 	}
 	// T
 	if (x == 116) {
-		playG();
+		playNote('G5');
 	}
 	// Y
 	if (x == 121) {
-		playA();
+		playNote('A5');
 	}
 	// U
 	if (x == 117) {
-		playB();
+		playNote('B5');
 	}
 	// I
 	if (x == 105) {
-		playC8va();
+		playNote('C6');
 	}
 }
+
+/* Find some way to consolidate button/keyboard code? too repetitive */
