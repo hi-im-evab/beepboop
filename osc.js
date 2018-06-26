@@ -1,4 +1,5 @@
-var keys = document.getElementsByTagName("button");
+var keys = document.getElementsByClassName("key");
+var chords = document.getElementsByClassName("chord");
 var synth;
 var synthDefault;
 var synthDefaultPoly;
@@ -38,6 +39,14 @@ synthB = new Tone.Synth({
 
 synth = synthDefault;
 
+function init() {
+	if (synth !== synthDefaultPoly) {
+		for (var i in chords) {
+			chords[i].disabled = true;
+		}
+	}
+}
+
 // Choose synth 
 function switchSynth() {
 	var choice = document.getElementById("synthChoice");
@@ -54,28 +63,41 @@ function switchSynth() {
 	if (choice.value == "synthB") {
 		synth = synthB;
 	}
-}
-
-// synth must be instantiated in a function?
-function makeMono(){
 	
+	if (synth === synthDefaultPoly) {
+		document.getElementById('detail').style.display = 'none';
+		for (var i in chords) {
+			chords[i].disabled = false;
+		}
+	} else {
+		document.getElementById('detail').style.display = '';
+		for (var i in chords) {
+			chords[i].disabled = true;
+		}
+	}
 }
 
-function makePoly(){
-	synthDefault = new Tone.PolySynth().toMaster();
-	synth = synthDefault;
+// // synth must be instantiated in a function?
+// function makeMono(){
 	
-	document.getElementById("synthChoice").value = "sDefault";
-	//Custom sounds do Poly differently?
+// }
 
-}
+// function makePoly(){
+	// synthDefault = new Tone.PolySynth().toMaster();
+	// synth = synthDefault;
+	
+	// document.getElementById("synthChoice").value = "sDefault";
+	// //Custom sounds do Poly differently?
+
+// }
 
 // Play Tones
 function playNote(note){
 	synth.triggerAttackRelease(note, '2n');
 }
 
-// Buttons
+/* Buttons */
+// Keys
 keys[0].addEventListener('click', function() {
 	playNote('C5');
 });
@@ -100,6 +122,37 @@ keys[6].addEventListener('click', function() {
 keys[7].addEventListener('click', function() {
 	playNote('C6');
 });
+
+// Chords
+// C Maj
+chords[0].addEventListener('click', function() {
+	playNote('C5');
+	playNote('E5');
+	playNote('G5');
+});
+
+chords[1].addEventListener('click', function() {
+	playNote('D5');
+	playNote('F5');
+	playNote('A5');
+});
+chords[2].addEventListener('click', function() {
+	playNote('E5');
+	playNote('G5');
+	playNote('B5');
+});
+chords[3].addEventListener('click', function() {
+	playNote('F5');
+	playNote('A5');
+	playNote('C6');
+});
+chords[4].addEventListener('click', function() {
+	playNote('G5');
+	playNote('B5');
+	playNote('D6');
+});
+
+
 
 //Keystrokes
 function keyboard(event) {

@@ -1,0 +1,69 @@
+body {
+	position: relative;
+	background: slategrey;
+}
+
+.main {
+	background: white;
+	width: 460px;
+	height: max-content;
+	margin: 0 auto;
+	padding: 10px;
+	border: 1px solid black;
+	border-radius: 10px;
+	
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, 50%);
+}
+
+.title {
+	text-align: center;
+	border-bottom: 1px dashed grey;
+}
+.title h3 {
+	margin: 0;
+}
+
+.controls {
+	border: 1px dashed grey;
+	border-radius: 10px;
+	margin: 10px;
+	background-color: lightgrey;
+}
+.controls h3, .controls #header {
+	margin: 0;
+	padding: 0;
+	margin-bottom: 4px;
+}
+
+.main .keys {
+	float: left;
+	width: max-content;
+	height: max-content;
+	padding: 10px;
+}
+
+.main .synths {
+	float: right;
+	width: max-content;
+	height: max-content;
+	padding: 10px;
+}
+.main .chords {
+	clear: both;
+	width: 420px;
+	height: max-content;
+	padding: 10px;
+}
+
+.chords span {
+	width: max-content;
+}
+.chords #header {
+	font-size: x-large;
+}
+.chords #detail {
+	color: red;
+}

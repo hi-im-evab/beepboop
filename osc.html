@@ -2,28 +2,60 @@
 
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-
 	<title>osc</title>
 	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+	
+	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
-<body onkeypress="keyboard(event)" onload="makeMono()">
-	<button name="key" id="btnC">C</button>
-	<button name="key" id="btnD">D</button>
-	<button name="key" id="btnE">E</button>
-	<button name="key" id="btnF">F</button>
-	<button name="key" id="btnG">G</button>
-	<button name="key" id="btnA">A</button>
-	<button name="key" id="btnB">B</button>
-	<button name="key" id="btnC8va">C</button>
-	<select id="synthChoice" onchange="switchSynth()">
-		<option value="sDefault">Default</option>
-		<option value="sDefaultPoly">DefaultPoly</option>
-		<option value="synthA">Synth A</option>
-		<option value="synthB">Synth B</option>
-	</select>
-	
+<body onkeypress="keyboard(event)" onload="init()">
+	<div class="main">
+		<div class="title">
+			<h3> It's a Synth! </h3>
+			<p> Use buttons or keyboard keys (qwertyui) to play! </p>
+		</div>
+		
+		<!-- Keys -->
+		<div class="keys controls">
+			<h3> Keys </h3>
+			<button class="key" id="btnC">C</button>
+			<button class="key" id="btnD">D</button>
+			<button class="key" id="btnE">E</button>
+			<button class="key" id="btnF">F</button>
+			<button class="key" id="btnG">G</button>
+			<button class="key" id="btnA">A</button>
+			<button class="key" id="btnB">B</button>
+			<button class="key" id="btnC8va">C</button>
+		</div>
+		
+		<!-- Synths -->
+		<div class="synths controls">
+			<h3> Synths </h3>
+			<select id="synthChoice" onchange="switchSynth()">
+				<option value="sDefault">Default</option>
+				<option value="sDefaultPoly">DefaultPoly</option>
+				<option value="synthA">Synth A</option>
+				<option value="synthB">Synth B</option>
+			</select>
+		</div>
+				
+		<!-- Chords -->
+		<div class="chords controls">
+			<span id="header"> Chords </span> 
+			<span id="detail">*Synth must be set to 'DefaultPoly' to play chords!</span>
+			<br>
+			<button class="chord" id="cMajor">C Major</button>
+			<button class="chord" id="dMinor">D minor</button>
+			<button class="chord" id="eMinor">E minor</button>
+			<button class="chord" id="fMajor">F Major</button>
+			<button class="chord" id="gMajor">G Major</button>
+		</div>
+	</div>
 	<!-- script must be at bottom? after all HTML loads -->
 	<script src="tone/build/Tone.js" type="text/javascript"></script>
 	<script src="osc.js" type="text/javascript"></script>
