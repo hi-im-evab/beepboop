@@ -1,3 +1,3 @@
-<object data="osc.html"> 
-    Your browser doesn’t support the object tag. 
-</object>
+<iframe src="osc.html"> 
+    Your browser doesn’t support iframes. 
+</iframe>
