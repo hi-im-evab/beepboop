@@ -84,12 +84,22 @@ function switchSynth() {
 
 
 // Play Tones
+// TODO: tie animation to volume, making it act as a db meter
 function playNote(note){
+	var start, end;
+	start = new Date();
+	
+	// Play note
 	synth.triggerAttackRelease(note, '2n');
+	
+	// Run animation
 	document.getElementById('thing').className += ' animate';
+	
+	// After 1 second, end animation
 	setTimeout(function() {
 		document.getElementById('thing').className = 'thing';
-	}, 1000)
+	}, 1000);
+	
 }
 
 /* Buttons */
