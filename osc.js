@@ -5,6 +5,7 @@ var synthDefault;
 var synthDefaultPoly;
 var synthA;
 var synthB;
+var meter = new Tone.Meter();
 
 synthDefault = new Tone.Synth().toMaster();
 
@@ -38,6 +39,10 @@ synthB = new Tone.Synth({
 }).toMaster()
 
 synth = synthDefault;
+
+synth.connect(meter);
+// document.getElementById('meter').innerHTML = meter.getValue();
+
 
 function init() {
 	if (synth !== synthDefaultPoly) {
@@ -77,23 +82,14 @@ function switchSynth() {
 	}
 }
 
-// // synth must be instantiated in a function?
-// function makeMono(){
-	
-// }
-
-// function makePoly(){
-	// synthDefault = new Tone.PolySynth().toMaster();
-	// synth = synthDefault;
-	
-	// document.getElementById("synthChoice").value = "sDefault";
-	// //Custom sounds do Poly differently?
-
-// }
 
 // Play Tones
 function playNote(note){
 	synth.triggerAttackRelease(note, '2n');
+	document.getElementById('thing').className += ' animate';
+	setTimeout(function() {
+		document.getElementById('thing').className = 'thing';
+	}, 1000)
 }
 
 /* Buttons */
@@ -122,6 +118,15 @@ keys[6].addEventListener('click', function() {
 keys[7].addEventListener('click', function() {
 	playNote('C6');
 });
+
+// for (i = 0; i < 8; i++) {
+	// keys[i].addEventListener('click', function() {
+		// document.getElementById('thing').className += ' animate';
+		// setTimeout(function() {
+			// document.getElementById('thing').className = 'thing';
+		// }, 1000)
+	// });
+// }
 
 // Chords
 // C Maj

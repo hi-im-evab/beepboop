@@ -1,6 +1,28 @@
+
 body {
 	position: relative;
 	background: slategrey;
+}
+
+.thing {
+	width: 500px;
+    height: 300px;
+	border-radius: 10px;
+	display: inline-block;
+    opacity: 0;
+    background: red;
+    -webkit-transition: opacity .5s; /* For Safari 3.1 to 6.0 */
+    transition: opacity .2s;
+	transition-timing-function: ease-out;
+	
+	
+	margin: 0 auto;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 40%);
+}
+.thing.animate {
+	opacity: 1;
 }
 
 .main {
