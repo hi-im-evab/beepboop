@@ -5,7 +5,7 @@ body {
 }
 
 .thing {
-	width: 500px;
+	width: 650px;
     height: 300px;
 	border-radius: 10px;
 	display: inline-block;
@@ -14,7 +14,6 @@ body {
     -webkit-transition: opacity .5s; /* For Safari 3.1 to 6.0 */
     transition: opacity .2s;
 	transition-timing-function: ease-out;
-	
 	
 	margin: 0 auto;
 	position: absolute;
@@ -27,7 +26,7 @@ body {
 
 .main {
 	background: white;
-	width: 460px;
+	width: 620px;
 	height: max-content;
 	margin: 0 auto;
 	padding: 10px;
@@ -52,6 +51,7 @@ body {
 	border: 1px dashed grey;
 	border-radius: 10px;
 	margin: 10px;
+	padding: 10px;
 	background-color: lightgrey;
 }
 .controls h3, .controls #header {
@@ -60,24 +60,17 @@ body {
 	margin-bottom: 4px;
 }
 
-.main .keys {
-	float: left;
+.main .synths {
 	width: max-content;
-	height: max-content;
-	padding: 10px;
+	height: 170px;
 }
 
-.main .synths {
-	float: right;
-	width: max-content;
-	height: max-content;
-	padding: 10px;
+#greyout {
+	background: grey;
 }
-.main .chords {
-	clear: both;
-	width: 420px;
-	height: max-content;
-	padding: 10px;
+
+.chords {
+
 }
 
 .chords span {

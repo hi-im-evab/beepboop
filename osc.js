@@ -40,9 +40,7 @@ synthB = new Tone.Synth({
 
 synth = synthDefault;
 
-synth.connect(meter);
-// document.getElementById('meter').innerHTML = meter.getValue();
-
+//synth.connect(meter);
 
 function init() {
 	if (synth !== synthDefaultPoly) {
@@ -50,6 +48,8 @@ function init() {
 			chords[i].disabled = true;
 		}
 	}
+	
+	document.getElementById('chords_group').style.display = 'none';
 }
 
 // Choose synth 
@@ -70,12 +70,14 @@ function switchSynth() {
 	}
 	
 	if (synth === synthDefaultPoly) {
-		document.getElementById('detail').style.display = 'none';
+		document.getElementById('chords_group').style.display = '';
+		
 		for (var i in chords) {
 			chords[i].disabled = false;
 		}
 	} else {
-		document.getElementById('detail').style.display = '';
+		document.getElementById('chords_group').style.display = 'none';
+		
 		for (var i in chords) {
 			chords[i].disabled = true;
 		}
@@ -128,15 +130,6 @@ keys[6].addEventListener('click', function() {
 keys[7].addEventListener('click', function() {
 	playNote('C6');
 });
-
-// for (i = 0; i < 8; i++) {
-	// keys[i].addEventListener('click', function() {
-		// document.getElementById('thing').className += ' animate';
-		// setTimeout(function() {
-			// document.getElementById('thing').className = 'thing';
-		// }, 1000)
-	// });
-// }
 
 // Chords
 // C Maj
