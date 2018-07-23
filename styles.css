@@ -81,9 +81,9 @@ body {
 /* Social media links */
 .social {
 	margin: 0 auto;
-	top: 410px;
+	top: 406px;
 	left: 50%;
-	width: 300px;
+	width: 306px;
 	position: absolute;
 }
 
@@ -95,6 +95,9 @@ body {
 	height: 34px;
     text-align: center;
     text-decoration: none;
+	
+	margin: 2px;
+	border-radius: 5px;
 }
 
 .fa:hover {
