@@ -95,11 +95,11 @@ function playNote(note){
 	synth.triggerAttackRelease(note, '2n');
 	
 	// Run animation
-	document.getElementById('thing').className += ' animate';
+	document.getElementById('note_marker').className += ' animate';
 	
 	// After 1 second, end animation
 	setTimeout(function() {
-		document.getElementById('thing').className = 'thing';
+		document.getElementById('note_marker').className = 'note_marker';
 	}, 1000);
 	
 }

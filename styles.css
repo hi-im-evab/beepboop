@@ -1,13 +1,12 @@
-
 body {
 	position: relative;
 	background: slategrey;
 }
 
-.thing {
+.note_marker {
 	width: 650px;
     height: 300px;
-	border-radius: 10px;
+	border-radius: 5px;
 	display: inline-block;
     opacity: 0;
     background: red;
@@ -20,7 +19,7 @@ body {
 	left: 50%;
 	transform: translate(-50%, 40%);
 }
-.thing.animate {
+.note_marker.animate {
 	opacity: 1;
 }
 
@@ -31,7 +30,7 @@ body {
 	margin: 0 auto;
 	padding: 10px;
 	border: 1px solid black;
-	border-radius: 10px;
+	border-radius: 5px;
 	
 	position: absolute;
 	top: 50%;
@@ -49,7 +48,7 @@ body {
 
 .controls {
 	border: 1px dashed grey;
-	border-radius: 10px;
+	border-radius: 5px;
 	margin: 10px;
 	padding: 10px;
 	background-color: lightgrey;
@@ -69,10 +68,6 @@ body {
 	background: grey;
 }
 
-.chords {
-
-}
-
 .chords span {
 	width: max-content;
 }
@@ -81,4 +76,47 @@ body {
 }
 .chords #detail {
 	color: red;
+}
+
+/* Social media links */
+.social {
+	margin: 0 auto;
+	top: 410px;
+	left: 50%;
+	width: 300px;
+	position: absolute;
+}
+
+.fa {
+	float: right;
+    padding: 10px;
+    font-size: 20px;
+    width: 34px;
+	height: 34px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-soundcloud {
+    background: #f50;
+    color: white;	
+}
+
+.fa-github {
+	background: #24292e;
+	color: white;
 }
