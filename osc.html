@@ -21,9 +21,8 @@
 
 <body onkeypress="keyboard(event)" onload="init()">
 	<div class='note_marker' id='note_marker'></div>
-	<!-- <div id='meter'></div> -->
 
-	<div class="main">
+	<div id='main' class="default-theme">
 		<div class="title">
 			<h3> It's a Synth! </h3>
 			<p> Use buttons or keyboard keys (qwertyui) to play! </p>
@@ -31,8 +30,8 @@
 		
 		<!-- Synths -->
 		<div class='row'>
+		
 			<div class='col-xs-3'>
-
 				<div class="synths controls">
 					<h3> Synths </h3>
 					<select id="synthChoice" onchange="switchSynth()" size="6">
@@ -41,8 +40,7 @@
 						<option value="synthA">Synth A</option>
 						<option value="synthB">Synth B</option>
 					</select>
-				</div>
-			
+				</div>	
 			</div>
 			
 			<div class='col-xs-9'>
@@ -57,6 +55,7 @@
 					<button class="key" id="btnA">A</button>
 					<button class="key" id="btnB">B</button>
 					<button class="key" id="btnC8va">C</button>
+					<button class="key" id="btnD8va">D</button>
 				</div>
 						
 				<!-- Chords -->
@@ -74,6 +73,14 @@
 		</div>
 		
 	</div>
+	
+	<!-- Theme Selector -->
+	<select id='theme-selector' onchange="switchTheme()">
+		<option value='default'>Default Theme</option>
+		<option value='red'>Red Theme</option>
+		<option value='dark'>Dark Theme</option>
+		<option value='gwn'>Great White North</option>
+	</select>
 	
 	<!-- Social links -->
 	<div class='social'>

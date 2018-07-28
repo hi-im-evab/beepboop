@@ -50,6 +50,36 @@ function init() {
 	}
 	
 	document.getElementById('chords_group').style.display = 'none';
+	
+	// Auto-load theme from hash
+	// TODO: REALLY SLOPPY! Consolidate into switchTheme()
+	if (window.location.hash == "#default"){
+		document.getElementById('main').className = 'default-theme';
+		document.body.style.backgroundColor = 'slategrey';
+		window.location.hash = '#default';
+		document.getElementById('theme-selector').value = 'default';
+	}
+	if (window.location.hash == "#red"){
+		document.getElementById('main').className = 'red-theme';
+		document.body.style.backgroundColor = '#330000';
+		window.location.hash = '#red';
+		document.getElementById('theme-selector').value = 'red';
+	}
+	if (window.location.hash == "#dark"){
+		document.getElementById('main').className = 'dark-theme';
+		document.body.style.backgroundColor = '#212121';
+		window.location.hash = '#dark';
+		document.getElementById('theme-selector').value = 'dark';
+	}
+	if (window.location.hash == "#gwn"){
+		document.getElementById('main').className = 'gwn-theme';
+		document.body.style.backgroundImage = "url('gwn.jpg')";
+		document.body.style.backgroundRepeat = "no-repeat";
+		document.body.style.backgroundSize = "cover";
+		window.location.hash = '#gwn';
+	}
+
+
 }
 
 // Choose synth 
@@ -82,6 +112,39 @@ function switchSynth() {
 			chords[i].disabled = true;
 		}
 	}
+}
+
+// Choose theme
+function switchTheme() {
+	var selector = document.getElementById('theme-selector');
+	
+	if (selector.value == "default"){
+		document.getElementById('main').className = 'default-theme';
+		document.body.style.backgroundColor = 'slategrey';
+		document.body.style.backgroundImage = "";
+		window.location.hash = '#default';
+	}
+	if (selector.value == "red"){
+		document.getElementById('main').className = 'red-theme';
+		document.body.style.backgroundColor = '#330000';
+		document.body.style.backgroundImage = "";
+		window.location.hash = '#red';
+
+	}
+	if (selector.value == "dark"){
+		document.getElementById('main').className = 'dark-theme';
+		document.body.style.backgroundColor = '#212121';
+		document.body.style.backgroundImage = "";
+		window.location.hash = '#dark';
+	}
+	if (selector.value == "gwn"){
+		document.getElementById('main').className = 'gwn-theme';
+		document.body.style.backgroundImage = "url('gwn.jpg')";
+		document.body.style.backgroundRepeat = "no-repeat";
+		document.body.style.backgroundSize = "cover";
+		window.location.hash = '#gwn';
+	}
+
 }
 
 
@@ -129,6 +192,9 @@ keys[6].addEventListener('click', function() {
 });
 keys[7].addEventListener('click', function() {
 	playNote('C6');
+});
+keys[8].addEventListener('click', function() {
+	playNote('D6');
 });
 
 // Chords
@@ -196,6 +262,10 @@ function keyboard(event) {
 	// I
 	if (x == 105) {
 		playNote('C6');
+	}
+	// 0
+	if (x == 111) {
+		playNote('D6');
 	}
 }
 

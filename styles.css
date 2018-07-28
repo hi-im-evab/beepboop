@@ -3,6 +3,7 @@ body {
 	background: slategrey;
 }
 
+/* Note hit marker */
 .note_marker {
 	width: 650px;
     height: 300px;
@@ -23,8 +24,8 @@ body {
 	opacity: 1;
 }
 
-.main {
-	background: white;
+/* Main */
+#main {
 	width: 620px;
 	height: max-content;
 	margin: 0 auto;
@@ -38,44 +39,111 @@ body {
 	transform: translate(-50%, 50%);
 }
 
-.title {
+#main .title {
 	text-align: center;
 	border-bottom: 1px dashed grey;
 }
-.title h3 {
+#main .title h3 {
 	margin: 0;
 }
 
-.controls {
+#main .controls {
 	border: 1px dashed grey;
 	border-radius: 5px;
 	margin: 10px;
 	padding: 10px;
-	background-color: lightgrey;
 }
-.controls h3, .controls #header {
+#main .controls h3, .controls #header {
 	margin: 0;
 	padding: 0;
 	margin-bottom: 4px;
 }
 
-.main .synths {
+#main .synths {
 	width: max-content;
 	height: 170px;
 }
 
-#greyout {
-	background: grey;
-}
-
-.chords span {
+#main .chords span {
 	width: max-content;
 }
-.chords #header {
+#main .chords #header {
 	font-size: x-large;
 }
-.chords #detail {
-	color: red;
+
+/* Default Theme */
+.default-theme {
+	background: white;
+}
+
+.default-theme .controls {
+	background-color: lightgrey;
+}
+
+
+/* Red Theme */
+.red-theme {
+	background: #990000;
+	color: white;
+}
+.red-theme .synths option {
+	color: black;
+}
+.red-theme .controls {
+	background: #ff6666
+}
+.red-theme button {
+	background: #990000;
+}
+
+/* Dark Theme */
+.dark-theme {
+	background: black;
+	color: #616161;
+}
+.dark-theme .synths option {
+	color: black;
+}
+.dark-theme .controls {
+	background: #292929;
+}
+.dark-theme button {
+	background: #363636;
+}
+
+/* GWN Theme */
+.gwn-theme {
+	background: none;
+	background-image: url("cn-flag.svg");
+	background-size: contain;
+	background-position: center;
+	color: black;
+}
+.gwn-theme .title {
+    text-shadow: 3px 2px 5px grey;
+}
+.gwn-theme .synths option {
+	color: black;
+}
+.gwn-theme .controls {
+	background: white;
+}
+.gwn-theme button {
+	background: #FF0000;
+	color: white;
+}
+
+/* Theme Selector */
+#theme-selector {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	
+	opacity: .5;
+	margin: 20px;
+}
+#theme-selector:hover {
+	opacity: 1;
 }
 
 /* Social media links */
