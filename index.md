@@ -1,4 +1,4 @@
-<iframe width="1162" height="768" src="osc.html"> 
+<iframe width="1080" height="720" src="osc.html"> 
     Your browser doesn’t support iframes. 
 </iframe>
 
